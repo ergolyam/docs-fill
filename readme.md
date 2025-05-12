@@ -72,9 +72,9 @@ python -m venv .venv
 
 Replace `template.docx` and `field_name=value` with your template and field data.
 
-## Preparing Document Templates
+### Preparing Document Templates
 
-### How to Stack Documents:
+#### How to Stack Documents:
 
 - Place your DOCX template files and optional YAML metadata files in the `docx_templates` folder of the repository.
 - YAML metadata files are used to define custom labels, input types, and choices for fields in the web interface.
@@ -88,7 +88,7 @@ docx_templates/
 └── agreement.yaml
 ```
 
-### Example DOCX Document `agreement.docx`:
+#### Example DOCX Document `agreement.docx`:
 
 - Create a DOCX file using placeholders (Jinja-style) as follows:
     ```docx
@@ -104,7 +104,7 @@ docx_templates/
     {{company_representative}}
     ```
 
-### Corresponding YAML Metadata File `agreement.yaml`:
+#### Corresponding YAML Metadata File `agreement.yaml`:
 
 - Provide detailed field descriptions, input types, and choices for fields:
     ```yaml
