@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заполнение шаблона</title>
+    <link rel="stylesheet" href="/templates/style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Генератор документов</h1>
+  </header>
+
+  <div class="container card">
+    <h2>Шаблон: {{ tpl }}</h2>
+    <form action="/generate" method="post">
+      <input type="hidden" name="tpl" value="{{ tpl }}">
+
+      {% for f in fields %}
+        <div class="form-group">
+          <label class="form-label" for="{{ f.name }}">{{ f.label }}</label>
+
+          {% if f.type == 'date' %}
+            <input class="form-control" type="date" name="{{ f.name }}" id="{{ f.name }}" required>
+          
+          {% elif f.type in ['int','float'] %}
+            <input class="form-control" type="number" step="{{ 'any' if f.type=='float' else '1' }}"
+                   name="{{ f.name }}" id="{{ f.name }}" required>
+          
+          {% elif f.type == 'bool' %}
+            <select class="form-select" name="{{ f.name }}" id="{{ f.name }}">
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
+          
+          {% elif f.type == 'choice' %}
+            <select class="form-select" name="{{ f.name }}" id="{{ f.name }}">
+              {% for c in f.choices %}
+                <option value="{{ c }}">{{ c }}</option>
+              {% endfor %}
+            </select>
+          
+          {% else %}
+            <input class="form-control" type="text" name="{{ f.name }}" id="{{ f.name }}" required>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <div class="form-group">
+        <label class="form-label" for="fmt">Формат:</label>
+        <select class="form-select" name="fmt" id="fmt">
+          <option value="docx">DOCX</option>
+          <option value="pdf">PDF</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Скачать</button>
+    </form>
+  </div>
+
+  <footer class="page-footer">
+    <p>
+      <a href="https://github.com/grisha765/docs-fill" target="_blank">View Source on GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>
+
