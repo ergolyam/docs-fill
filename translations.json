@@ -1,0 +1,35 @@
+{
+  "en": {
+    "app_title": "Document Generator",
+    "choose_template": "Choose a document template",
+    "with_description": "— with description",
+    "no_files": "No .docx files found in docx_templates folder.",
+    "view_source": "View Source on GitHub",
+    "header_link": "https://github.com/grisha765/docs-fill",
+    "fill_title": "Fill template",
+    "template": "Template",
+    "download": "Download",
+    "format": "Format:",
+    "date_yes": "Yes",
+    "date_no": "No",
+    "lang_switch_to_ru": "Switch to Russian",
+    "lang_switch_to_en": "Switch to English"
+  },
+  "ru": {
+    "app_title": "Генератор документов",
+    "choose_template": "Выберите шаблон документа",
+    "with_description": "— с описанием",
+    "no_files": "В папке docx_templates пока нет .docx-файлов.",
+    "view_source": "Посмотреть исходный код на GitHub",
+    "header_link": "https://github.com/grisha765/docs-fill",
+    "fill_title": "Заполнение шаблона",
+    "template": "Шаблон",
+    "download": "Скачать",
+    "format": "Формат:",
+    "date_yes": "Да",
+    "date_no": "Нет",
+    "lang_switch_to_ru": "Переключиться на русский",
+    "lang_switch_to_en": "Switch to English"
+  }
+}
+

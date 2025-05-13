@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
-    <title>Генератор документов</title>
+    <title>{{ t["app_title"] }}</title>
     <link rel="stylesheet" href="/templates/style.css">
 </head>
 <body>
   <header class="page-header">
-    <h1>Генератор документов</h1>
+    <h1>{{ t["app_title"] }}</h1>
+    <p>
+      <a href="{{ request.url_for('set_lang') }}?lang=ru">{{ t["lang_switch_to_ru"] }}</a> |
+      <a href="{{ request.url_for('set_lang') }}?lang=en">{{ t["lang_switch_to_en"] }}</a>
+    </p>
   </header>
 
   <div class="container card">
-    <h2>Выберите шаблон документа</h2>
+    <h2>{{ t["choose_template"] }}</h2>
 
     <div class="template-buttons">
       {% for tpl in files %}
         <a href="{{ request.url_for('fill', tpl=tpl) }}" class="btn">
           {{ tpl }}
           {% if tpl.replace('.docx', '.yaml') in files %}
-            — с описанием
+            {{ t["with_description"] }}
           {% endif %}
         </a>
       {% else %}
-        <p>В папке <code>docx_templates</code> пока нет .docx-файлов.</p>
+        <p>{{ t["no_files"] }}</p>
       {% endfor %}
     </div>
   </div>
 
   <footer class="page-footer">
     <p>
-      <a href="https://github.com/grisha765/docs-fill" target="_blank">View Source on GitHub</a>
+      <a href="{{ t['header_link'] }}" target="_blank">{{ t["view_source"] }}</a>
     </p>
   </footer>
 
