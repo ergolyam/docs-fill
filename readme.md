@@ -8,7 +8,7 @@ A Python application using **FastAPI** to dynamically generate documents by fill
 3. **Download Dependencies**: Download the required dependencies into the Virtual Env `venv` using `uv`.
 
 ```shell
-git clone https://github.com/grisha765/docs-fill.git
+git clone https://github.com/ergolyam/docs-fill.git
 cd docs-fill
 python -m venv .venv
 .venv/bin/python -m pip install uv
@@ -26,7 +26,7 @@ python -m venv .venv
 
 - Pull the container:
     ```bash
-    podman pull ghcr.io/grisha765/docs-fill:latest
+    podman pull ghcr.io/ergolyam/docs-fill:latest
     ```
 
 - Deploy using Podman:
@@ -36,7 +36,7 @@ python -m venv .venv
     -v /path/to/docx_templates:/app/docx_templates:z \
     --p 8000:8000 \
     -e PORT="8000" \
-    ghcr.io/grisha765/docs-fill:latest
+    ghcr.io/ergolyam/docs-fill:latest
     ```
 
 #### Proxy on nginx
